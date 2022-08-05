@@ -1,0 +1,35 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's List</h2>
+      <table id="person-table">
+        <tbody></tbody>
+      </table>
+      <button id="add-row">Add row</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  const table = document.querySelector("#person-table");
+  const btn = document.querySelector("#add-row");
+  const tabody = document.querySelector("tbody");
+  btn.addEventListener("click", addrow);
+  function addrow() {
+    const name = createSingElement("firstName");
+    const surname = createSingElement("LastName");
+    const age = createSingElement("age");
+    const row = document.createElement("tr");
+    row.append(name);
+    row.append(surname);
+    row.append(age);
+    tabody.append(row);
+  }
+  function createSingElement(text) {
+    const element = document.createElement("td");
+    const input = document.createElement("input");
+    element.append(input);
+    input.value = text;
+    return element;
+  }
+</script>
